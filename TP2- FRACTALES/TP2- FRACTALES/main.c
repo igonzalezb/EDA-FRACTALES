@@ -16,6 +16,7 @@ int octogonal(int lStart, int lCosnt, int lEnd)
 		return 0;
 	else
 	{
+		
 
 	}
 
