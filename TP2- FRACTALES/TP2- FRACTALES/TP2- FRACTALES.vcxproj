@@ -146,7 +146,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="allegro_setup.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="poligono.c" />
     <ClCompile Include="triangulo.c" />
   </ItemGroup>
   <ItemGroup>

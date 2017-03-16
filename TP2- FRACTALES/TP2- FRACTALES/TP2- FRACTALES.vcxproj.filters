@@ -21,6 +21,12 @@
     <ClCompile Include="triangulo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="poligono.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="allegro_setup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
