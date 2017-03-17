@@ -14,3 +14,11 @@ int octogonal(int lStart, int lCosnt, int lEnd)
 	}
 
 }
+
+
+int draw_poligon()
+{
+
+
+
+}
