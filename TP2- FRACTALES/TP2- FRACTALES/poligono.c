@@ -1,5 +1,3 @@
-
-
 #include "poligono.h"
 #include <math.h>
 #include <stdio.h>
@@ -20,7 +18,7 @@ typedef struct {
 int draw_poligon(float l, float centreX, float centreY, int numPoints);
 
 
-int poligon(float lStart,float lEnd, float centreX, float centreY, int numPoints, int i)
+int poligon(float lStart,float lEnd, float lConstant, float centreX, float centreY, int numPoints, int i)
 {
 	coordinates_t v;
 	double angle = 2 * PI / numPoints;
@@ -39,7 +37,7 @@ int poligon(float lStart,float lEnd, float centreX, float centreY, int numPoints
 		{
 			v.x = centreX + radius * sin(i * angle);
 			v.y = centreY + radius * cos(i * angle);
-			poligon(lStart*0.5, lEnd, v.x, v.y, numPoints, i++);
+			poligon(lStart*lConstant, lEnd, lConstant, v.x, v.y, numPoints, i++);
 		}
 
 	}

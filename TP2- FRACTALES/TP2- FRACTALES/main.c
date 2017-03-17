@@ -1,3 +1,7 @@
+
+
+
+
 #include <stdio.h>
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
@@ -19,6 +23,7 @@ int allegro_setup(void);
 
 int main(int argc, char *argv[] )
 {
+//============================================================================================================
 	ALLEGRO_DISPLAY * display = NULL;
 	
 	if (allegro_setup() == ERROR)
@@ -36,8 +41,8 @@ int main(int argc, char *argv[] )
 	al_clear_to_color(al_color_name("white"));
 	al_flip_display();
 
-
-	poligon(100.0, 30.0, CENTER_W, CENTER_H, 8, 0);
+//===========================================================================================================
+	poligon(100.0, 15.0, 0.5, CENTER_W, CENTER_H, 8, 0);
 	
 	al_rest(5);
 	al_configuration_end();
@@ -130,7 +135,7 @@ void al_configuration_end(void)
 {
 	al_uninstall_system();
 
-	//al_shutdown_image_addon();
+	al_shutdown_image_addon();
 
 	//al_uninstall_keyboard();
 
