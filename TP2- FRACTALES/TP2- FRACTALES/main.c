@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <allegro5\allegro.h>
-#include <allegro5\allegro_primitives.h>
-#include <allegro5\allegro_color.h>
-#include <allegro5\allegro_image.h>
+//#include <allegro5\allegro.h>
+//#include <allegro5\allegro_primitives.h>
+//#include <allegro5\allegro_color.h>
+//#include <allegro5\allegro_image.h>
 
 #define ERROR -1
 void al_configuration_end(void);
