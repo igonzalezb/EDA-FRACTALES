@@ -1,9 +1,13 @@
+#include<stdio.h>
 #include <stdint.h>
 #include <math.h>
-typedef struct {
-	float x;
-	float y;
-}point_t;
+#include "triangulo.h"
+
+
+
+point_t TriangleIncenter(point_t a, point_t b, point_t c);
+double DistanceBetweenPoints(point_t x, point_t y);
+
 
 void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float RightAngle, float LeftAngle)
 {
@@ -14,24 +18,24 @@ void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float Ri
 void TriangleRecursionPoints(point_t a, point_t b, point_t c, float lEnd)
 {
 	point_t center;
-	//if /*longitud de algun lado*/<lEND
-//	{
+	if ((DistanceBetweenPoints(a,b)<lEnd)|| (DistanceBetweenPoints(b,c)<lEnd) || (DistanceBetweenPoints(a,c)<lEnd))
+	{
 		//dibujo triangulo en vase a las tres cordenadas recividas
-	//	return;
-	   //
-	//}
-	//else
-	//{
-		//calculo el centro
-		//TriangleRecursionPoints(a,b,center,lEnd);
-		//TriangleRecursionPoints(a, center,c,lEnd);
-		//TriangleRecursionPoints(center,b,c, lEnd);
+		return;
+	   
+	}
+	else
+	{
+		center = TriangleIncenter(a, b, c);
+		TriangleRecursionPoints(a,b,center,lEnd);
+		TriangleRecursionPoints(a, center,c,lEnd);
+		TriangleRecursionPoints(center,b,c, lEnd);
 
-	//}
+	}
 
 }
 
-//Function taht return de distance between to pointa
+
 double DistanceBetweenPoints(point_t x, point_t y)
 {
 	return  sqrt((double)(((x.x - y.x)*(x.x - y.x)) + ((x.y - y.y)*(x.y - y.y))));
