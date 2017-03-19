@@ -24,7 +24,7 @@ typedef unsigned int UINT;
 COMPLEJO comp_cuadrado(COMPLEJO c);
 UINT fn_mandelbrot (UINT nmax, COMPLEJO z,int af,int bf) ;
 ALLEGRO_DISPLAY * in_allegro_color(void);
-UINT sub_mandelbrot (void);
-void Mandelbrot(void); //función principal
+UINT sub_mandelbrot (float a0, float af, float b0, float bf);
+void Mandelbrot(float a0, float af, float b0, float bf); //función principal
 
 #endif

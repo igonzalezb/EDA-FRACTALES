@@ -49,17 +49,17 @@ ALLEGRO_DISPLAY * in_allegro_color(void)
    return display;
 }
 
-UINT sub_mandelbrot (void)
+UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
 {
 /****** Variables *******/
 
-	float a0=-2,b0=-2,af=2,bf=2,a=a0,b=bf,grany=(bf-b0)/480,granx=(af-a0)/640;//limites del plano complejo, a y b son las variables que recorren el plano pintándolo y gran es la granularidad en x o y
+	float a=a0,b=bf,grany=(bf-b0)/480,granx=(af-a0)/640;//a y b son las variables que recorren el plano pintándolo y gran es la granularidad en x o y
 	COMPLEJO z={0,0};
 	UINT n,m,l;
 
 /******* Interacción con el usuario *********/
 
-	printf("Oprima 1, 2 o 3 para elegir la opcion de combinacion de colores para el grafico,siendo 1 la mas simple\n");
+	printf("Oprima 1, 2 o 3 para elegir la opcion de combinacion de colores para el grafico,siendo 1 la mas simple.\n");
 	char i=getchar();
 	while (i=='\n') //evita leer el caracter del enter que queda en el buffer
 		i=getchar();
@@ -80,7 +80,7 @@ UINT sub_mandelbrot (void)
 	}
 	else
 	{
-		printf("Opcion invalida, pruebe nuevamente\n");
+		printf("Opcion invalida, pruebe nuevamente.\n");
 		return 1;
 	}
 
@@ -107,7 +107,7 @@ UINT sub_mandelbrot (void)
 
 /***** Interacción con el usuario, define si devuelve un valor que le permita volver a empezar o termina *****/
 
-	printf("Si desea volver a empezar presione 1, de lo contrario 0 para terminar\n");
+	printf("Si desea volver a empezar presione 1, de lo contrario 0 para terminar.\n");
 	char k=getchar();
 	while (k=='\n') //evita leer el caracter del enter que queda en el buffer
 		k=getchar();
@@ -116,17 +116,17 @@ UINT sub_mandelbrot (void)
 	else if(k=='0')
 		return 0;
 	else
-		printf("Error de lectura, el programa finalizara\n");
+		printf("Error de lectura, el programa finalizara.\n");
 	al_rest(3.0);
 	return 0;
 }
 
-void Mandelbrot(void)
+void Mandelbrot(float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
 /*********** Función principal, permite repetir el gráfico si el usuario lo desea ********/
 {
 	UINT i=1;
 	while (i)
 	{
-		i=sub_mandelbrot();
+		i=sub_mandelbrot(a0,af,b0,bf);
 	}
 }
