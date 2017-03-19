@@ -11,11 +11,15 @@
 
 #include "poligono.h"
 
-#define ERROR -1
-#define SCREEN_W    800
-#define SCREEN_H    600
+#define ERROR		-1
+#define SCREEN_W	800
+#define SCREEN_H	600
 #define CENTER_W	(al_get_display_width(display) / 2)
 #define CENTER_H	(al_get_display_height(display) / 2)
+
+#define N_FRACTALS	3
+
+//enum {UNIFORME, POLIGON, MANDELBROT};
 
 void al_configuration_end(void);
 int allegro_setup(void);
@@ -42,13 +46,57 @@ int main(int argc, char *argv[] )
 	al_flip_display();
 
 //===========================================================================================================
-	poligon(100.0, 15.0, 0.5, CENTER_W, CENTER_H, 8, 0);
+	poligon(100.0, 15.0, 0.5, CENTER_W, CENTER_H, 8);// , 0);
 	
 	al_rest(5);
 	al_configuration_end();
 	return 0;
 
 }
+
+
+
+
+
+
+//int parseCallback(char *key, char *value, void *userData)
+//{
+//
+//
+//	if (key == NULL)
+//	{
+//		const char* fractals[N_FRACTALS] = { "uniforme", "poligon", "mandelbrot" };
+//		for (int i = 0; i < N_FRACTALS; i++)
+//		{
+//			isEqual = strcmp(value, paramList[i]);
+//			if (isEqual == EQ)                                                                                     //      printf("param %s CORRECT\n",value);
+//				retValue = 1;
+//		}
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

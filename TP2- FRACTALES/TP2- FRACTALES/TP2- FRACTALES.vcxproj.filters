@@ -27,12 +27,21 @@
     <ClCompile Include="allegro_setup.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mandelbrot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="poligono.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mandelbrot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="triangulo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
