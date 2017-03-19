@@ -59,24 +59,30 @@ int main(int argc, char *argv[] )
 
 
 
-//int parseCallback(char *key, char *value, void *userData)
-//{
-//
-//
-//	if (key == NULL)
-//	{
-//		const char* fractals[N_FRACTALS] = { "uniforme", "poligon", "mandelbrot" };
-//		for (int i = 0; i < N_FRACTALS; i++)
-//		{
-//			isEqual = strcmp(value, paramList[i]);
-//			if (isEqual == EQ)                                                                                     //      printf("param %s CORRECT\n",value);
-//				retValue = 1;
-//		}
-//	}
-//
-//
-//	return 0;
-//}
+int parseCallback(char *key, char *value, void *userData)
+{
+	bool isEqual, retValue;
+
+	if (key == NULL)
+	{
+		const char* fractals[N_FRACTALS] = { "uniforme", "poligon", "mandelbrot" };
+		for (int i = 0; i < N_FRACTALS; i++)
+		{
+			isEqual = strcmp(value, fractals[i]);
+			if (isEqual == true)                                                                                     //      printf("param %s CORRECT\n",value);
+				retValue = 1;
+		}
+		
+	}
+
+	else
+	{
+
+	}
+
+
+	return 0;
+}
 
 
 
