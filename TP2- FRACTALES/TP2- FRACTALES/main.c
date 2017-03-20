@@ -42,7 +42,9 @@ int main(int argc, char *argv[] )
 	al_flip_display();
 
 //===========================================================================================================
-	poligon(100.0, 15.0, 0.5, CENTER_W, CENTER_H, 8, 0);
+	
+	
+	poligono(350.0, 251.1, 0.5, CENTER_W, CENTER_H, 8);
 	
 	al_rest(5);
 	al_configuration_end();

@@ -15,12 +15,56 @@ typedef struct {
 	float y;
 } coordinates_t;
 
-
+int poligonRec(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints);
 void draw_poligon(float l, float centreX, float centreY, int numPoints);
 
 
+
 //===================================================================================================================================
-//		poligon
+//		Validacion de Datos
+//	
+//	lStart()
+//	lEnd()
+//	lConstant(0-1)
+//	numPoints (3-50?)
+//
+//===================================================================================================================================
+
+int poligono(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints)
+{
+	if (lStart < 0 || lStart > 500)
+	{
+		printf("lStart Value Incorrect\n");
+		return -1;
+	}
+	else if (lEnd >= lStart)
+	{
+		printf("lEnd Value Incorrect\n");
+		return -1;
+	}
+	else if (lConstant <= 0 || lConstant >= 1)
+	{
+		printf("lConstant Value Incorrect\n");
+		return -1;
+	}
+	else if (numPoints < 3)
+	{
+		printf("Number of vertices Incorrect (min 3)\n");
+		return -1;
+	}
+
+	else
+		poligonRec(lStart, lEnd, lConstant, centreX, centreY, numPoints);
+
+	return 0;
+}
+
+
+
+
+
+//===================================================================================================================================
+//		poligonRec
 //
 //	Funcion recursiva que crea un fractal poligonal.
 //	Este fractal presenta la siguiente dinámica:
@@ -31,7 +75,7 @@ void draw_poligon(float l, float centreX, float centreY, int numPoints);
 //===================================================================================================================================
 
 
-int poligon(float lStart,float lEnd, float lConstant, float centreX, float centreY, int numPoints)
+int poligonRec(float lStart,float lEnd, float lConstant, float centreX, float centreY, int numPoints)
 {
 	coordinates_t v;
 	double angle = 2 * PI / numPoints;
@@ -50,7 +94,7 @@ int poligon(float lStart,float lEnd, float lConstant, float centreX, float centr
 		{
 			v.x = centreX + radius * sin(k * angle);	//Coordenadas (x,y) de un vertice
 			v.y = centreY + radius * cos(k * angle);
-			poligon(lStart*lConstant, lEnd, lConstant, v.x, v.y, numPoints);
+			poligonRec(lStart*lConstant, lEnd, lConstant, v.x, v.y, numPoints);
 		}
 
 	}
