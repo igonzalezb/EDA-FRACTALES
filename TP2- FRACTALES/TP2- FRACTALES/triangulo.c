@@ -28,21 +28,19 @@ float ValAbsolute(float value);
 void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float RightAngle, float LeftAngle,int16_t ScreenWidth,int16_t ScreenHigh)
 {
 	point_t b = { StartPosition.x + lStart,StartPosition.y};
-	point_t c;
+	point_t c = {0,0};
 	uint8_t Error=FALSE;
 
 	if (TRIANGLE_INTERNAL_ANGLE > (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))//evaluo la suma de los angulos los angulos
 	{
 		c = TriangleThirdPoint(StartPosition, lStart, ((RightAngle*MY_PI)/ TRIANGLE_INTERNAL_ANGLE), ((LeftAngle*MY_PI) / TRIANGLE_INTERNAL_ANGLE));
+		c.y= StartPosition.y - (c.y - StartPosition.y);
 	}
-	else if (TRIANGLE_INTERNAL_ANGLE < (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))
+	else if (TRIANGLE_INTERNAL_ANGLE <= (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))
 	{
 		Error = TRUE;
 	}
-
-
-
-	if ((b.x > ScreenWidth) || (b.y > ScreenHigh))//chequeo que todos los puntos esten dentro de la pantalla
+    else if ((b.x > ScreenWidth) || (b.y > ScreenHigh))//chequeo que todos los puntos esten dentro de la pantalla
 	{
 		Error = TRUE;
 	}
@@ -50,10 +48,13 @@ void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float Ri
 	{
 		Error = TRUE;
 	}
-	if ((c.x > ScreenWidth) || (c.y > ScreenHigh))
+	else if ((c.x > ScreenWidth) || (c.y > ScreenHigh))
 	{
 		Error = TRUE;
 	}
+	
+	
+	
 	if (!Error)
 	{
 		TriangleRecursionPoints(StartPosition, b, c, lEnd);
@@ -141,7 +142,12 @@ void DrawTriangle3Points(point_t a, point_t b, point_t c)
 }
 
 
-
+//TriangleThirdPoint
+//recive: un punto, la longitud del lado, y los 3 angulos adyacebtes a ese lado
+//devuelve: el tercer punto de un triangulo
+//
+//
+//
 point_t TriangleThirdPoint(point_t StartBase, float BaseLengh, float RightAngle, float LeftAngle)
 {
 	point_t ThirdPoint;
@@ -151,6 +157,11 @@ point_t TriangleThirdPoint(point_t StartBase, float BaseLengh, float RightAngle,
 	return ThirdPoint;
 }
 
+// ValAbsolute
+//recive float
+//devuelve valor absoluto de un numero
+//
+//
 
 float ValAbsolute(float value)
 {
