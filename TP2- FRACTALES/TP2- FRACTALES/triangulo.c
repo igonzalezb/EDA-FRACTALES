@@ -31,12 +31,19 @@ void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float Ri
 	point_t c = {0,0};
 	uint8_t Error=FALSE;
 
-	if (TRIANGLE_INTERNAL_ANGLE > (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))//evaluo la suma de los angulos los angulos
+	if ((lEnd<=FALSE)|| (lStart<=FALSE))
 	{
-		c = TriangleThirdPoint(StartPosition, lStart, ((RightAngle*MY_PI)/ TRIANGLE_INTERNAL_ANGLE), ((LeftAngle*MY_PI) / TRIANGLE_INTERNAL_ANGLE));
+		Error = TRUE;
+	}
+	
+	
+	 if( (TRIANGLE_INTERNAL_ANGLE > (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))&& (RightAngle<=(TRIANGLE_INTERNAL_ANGLE/2))&&(LeftAngle<=(TRIANGLE_INTERNAL_ANGLE / 2))&& (RightAngle!= FALSE)&& (LeftAngle != FALSE))//evaluo la suma de los angulos 
+	{
+		c = TriangleThirdPoint(StartPosition, lStart, ((ValAbsolute(RightAngle)*MY_PI)/ TRIANGLE_INTERNAL_ANGLE), ((ValAbsolute(LeftAngle)*MY_PI) / TRIANGLE_INTERNAL_ANGLE));
 		c.y= StartPosition.y - (c.y - StartPosition.y);
 	}
-	else if (TRIANGLE_INTERNAL_ANGLE <= (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle)))
+	else if ((TRIANGLE_INTERNAL_ANGLE <= (ValAbsolute(LeftAngle) + ValAbsolute(RightAngle))) || (RightAngle > (TRIANGLE_INTERNAL_ANGLE / 2)) || (LeftAngle > (TRIANGLE_INTERNAL_ANGLE / 2)) || (RightAngle == FALSE) || (LeftAngle != FALSE))
+
 	{
 		Error = TRUE;
 	}
