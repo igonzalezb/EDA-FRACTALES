@@ -24,7 +24,7 @@ ALLEGRO_COLOR RandomColors(void);
 void DrawTriangle3Points(point_t a, point_t b, point_t c);
 point_t TriangleThirdPoint(point_t StartBase, float BaseLengh, float RightAngle, float LeftAngle);
 float ValAbsolute(float value);
-
+//funcion que valida datos para el triangulo recursivo
 void TriangleRecursion(point_t StartPosition, float lStart, float lEnd, float RightAngle, float LeftAngle,int16_t ScreenWidth,int16_t ScreenHigh)
 {
 	point_t b = { StartPosition.x + lStart,StartPosition.y};

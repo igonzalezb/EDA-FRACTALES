@@ -30,6 +30,9 @@
     <ClCompile Include="PARSER.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="callback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="poligono.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="triangulo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="callback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

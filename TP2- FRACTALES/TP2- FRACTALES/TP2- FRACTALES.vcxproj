@@ -178,6 +178,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="callback.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Mandelbrot.c" />
     <ClCompile Include="PARSER.c" />
@@ -185,6 +186,7 @@
     <ClCompile Include="triangulo.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="callback.h" />
     <ClInclude Include="mandelbrot.h" />
     <ClInclude Include="PARSER.h" />
     <ClInclude Include="poligono.h" />

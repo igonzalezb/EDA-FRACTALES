@@ -29,25 +29,6 @@ UINT fn_mandelbrot (UINT nmax, COMPLEJO z,int af,int bf)
 	return nmax; //si llegó a nmax sin diverger es un punto del conjunto de Mandelbrot
 }
 
-//ALLEGRO_DISPLAY * in_allegro_color(void) 
-///********************   Inicializa el display de Allegro                  *************/
-//{
-//
-//	ALLEGRO_DISPLAY *display = NULL;
-//
-//   if(!al_init()) 
-//   {
-//      fprintf(stderr, "Error al inicializar allegro\n");
-//   }
-//
-//   display = al_create_display(800, 600);// (640, 480); //dimensiones, ancho y altura respectivamente
-//   if(!display) 
-//   {
-//      fprintf(stderr, "Error al crear el display\n");
-//   }
-//
-//   return display;
-//}
 
 UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
 {
@@ -87,7 +68,6 @@ UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites
 
 /**** Recorre el display pixel por pixel, evalúa la función y pinta del color correspondiente *****/
 
-	//ALLEGRO_DISPLAY *display=in_allegro_color(); //inicializa el display y devuelve un puntero al mismo, para destruirlo al finalizar
 	for(float x=0.5;x<=799.5;x=x+1,a=a+granx)
 	{
 		for(float y=0.5;y<=599.5;y=y+1,b=b-grany)  //x e y arrancan en 0.5 ya que es el centro del primer pixel, y se incrementan en uno para ir ubicándose en cada centro
@@ -103,7 +83,6 @@ UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites
 	}
 	al_flip_display(); //muestra el display
 	al_rest(5.0);
-	//al_destroy_display(display);
 
 /***** Interacción con el usuario, define si devuelve un valor que le permita volver a empezar o termina *****/
 
@@ -122,7 +101,7 @@ UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites
 }
 
 int Mandelbrot(float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
-/*********** Función principal, permite repetir el gráfico si el usuario lo desea ********/
+/*********** Función principal, permite repetir el gráfico si el usuario lo desea y valida datos ********/
 {
 
 	if ((a0 > -0.4) || (a0 < -4))
