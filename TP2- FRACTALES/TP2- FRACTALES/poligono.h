@@ -2,11 +2,14 @@
 #define POLIGONO_H
 
 
+typedef struct {
+	float x;
+	float y;
+} coordinates_t;
 
 
 
-
-int poligono(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints);
+int poligono(float lStart, float lEnd, float lConstant, coordinates_t center, int numPoints);
 
 
 #endif // POLIGONO_H

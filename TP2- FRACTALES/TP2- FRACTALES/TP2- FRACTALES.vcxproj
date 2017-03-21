@@ -178,7 +178,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="allegro_setup.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Mandelbrot.c" />
     <ClCompile Include="PARSER.c" />

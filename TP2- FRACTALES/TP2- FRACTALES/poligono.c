@@ -10,29 +10,27 @@
 
 #define PI		acos(-1.0)	//3.14159265358979323846
 
-typedef struct {
-	float x;
-	float y;
-} coordinates_t;
 
-int poligonRec(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints);
-void draw_poligon(float l, float centreX, float centreY, int numPoints);
+
+int poligonRec(float lStart, float lEnd, float lConstant, coordinates_t center, int numPoints);
+
+void draw_poligon(float l, coordinates_t center, int numPoints);
 
 
 
 //===================================================================================================================================
 //		Validacion de Datos
 //	Chequea que los datos ingresados por el usuario sean validos
-//		lStart( 0 - 300)
+//		lStart( 0 - 350)
 //		lEnd( < lStart)
 //		lConstant(0-1)
 //		numPoints (>=3)
 //
 //===================================================================================================================================
 
-int poligono(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints)
+int poligono(float lStart, float lEnd, float lConstant, coordinates_t center, int numPoints)
 {
-	if (lStart < 0 || lStart > 300)
+	if (lStart < 0 || lStart > 350)
 	{
 		printf("lStart Value Incorrect\n");
 		return -1;
@@ -54,7 +52,7 @@ int poligono(float lStart, float lEnd, float lConstant, float centreX, float cen
 	}
 
 	else
-		poligonRec(lStart, lEnd, lConstant, centreX, centreY, numPoints);
+		poligonRec(lStart, lEnd, lConstant, center, numPoints);
 
 	return 0;
 }
@@ -75,7 +73,7 @@ int poligono(float lStart, float lEnd, float lConstant, float centreX, float cen
 //===================================================================================================================================
 
 
-int poligonRec(float lStart,float lEnd, float lConstant, float centreX, float centreY, int numPoints)
+int poligonRec(float lStart, float lEnd, float lConstant, coordinates_t center, int numPoints)
 {
 	coordinates_t v;
 	double angle = 2 * PI / numPoints;
@@ -83,18 +81,18 @@ int poligonRec(float lStart,float lEnd, float lConstant, float centreX, float ce
 	
 	if (lStart < lEnd)
 	{
-		draw_poligon(lStart, centreX, centreY, numPoints);	//Como estoy en la longitud final, dibujo el ultimo poligono y vuelvo.
+		draw_poligon(lStart, center, numPoints);	//Como estoy en la longitud final, dibujo el ultimo poligono y vuelvo.
 		return 0;
 	}
 		
 	else
 	{
-		draw_poligon(lStart, centreX, centreY, numPoints);
+		draw_poligon(lStart, center, numPoints);
 		for (int k = 0; k <= numPoints; k++)
 		{
-			v.x = centreX + radius * sin(k * angle);	//Coordenadas (x,y) de un vertice
-			v.y = centreY + radius * cos(k * angle);
-			poligonRec(lStart*lConstant, lEnd, lConstant, v.x, v.y, numPoints);
+			v.x = center.x + radius * sin(k * angle);	//Coordenadas (x,y) de un vertice
+			v.y = center.y + radius * cos(k * angle);
+			poligonRec(lStart*lConstant, lEnd, lConstant, v, numPoints);
 		}
 
 	}
@@ -111,7 +109,7 @@ int poligonRec(float lStart,float lEnd, float lConstant, float centreX, float ce
 
 
 
-void draw_poligon(float l, float centreX, float centreY, int numPoints)
+void draw_poligon(float l, coordinates_t center, int numPoints)
 {
 	double angle = 2 * PI / numPoints;		
 	double radius = l / (2 * sin(PI / numPoints));		//radio del centro del poligono a sus vertices
@@ -121,11 +119,11 @@ void draw_poligon(float l, float centreX, float centreY, int numPoints)
 	
 	for (int i = 0, j = 1; i <= numPoints && j <= numPoints; i++, j++)
 	{
-		v1.x = centreX + radius * sin(i * angle);	//Coordenadas x, y de un vertice
-		v1.y = centreY + radius * cos(i * angle);
+		v1.x = center.x + radius * sin(i * angle);	//Coordenadas x, y de un vertice
+		v1.y = center.y + radius * cos(i * angle);
 
-		v2.x = centreX + radius * sin(j * angle);	////Coordenadas x, y de otro vertice
-		v2.y = centreY + radius * cos(j * angle);
+		v2.x = center.x + radius * sin(j * angle);	////Coordenadas x, y de otro vertice
+		v2.y = center.y + radius * cos(j * angle);
 
 		al_draw_line(v1.x, v1.y, v2.x, v2.y, color, LINE_THICKNESS);
 		al_flip_display();

@@ -24,9 +24,6 @@
     <ClCompile Include="poligono.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="allegro_setup.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mandelbrot.c">
       <Filter>Source Files</Filter>
     </ClCompile>

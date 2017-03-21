@@ -23,6 +23,8 @@
 
 
 #include "poligono.h"
+#include "Mandelbrot.h"
+#include "triangulo.h"
 
 #define ERROR -1
 #define SCREEN_W    800
@@ -56,14 +58,40 @@ int main(int argc, char *argv[] )
 
 //===========================================================================================================
 	
+	coordinates_t center;
+	center.x = CENTER_W;
+	center.y = CENTER_H;
 	
-	poligono(350.0, 251.1, 0.5, CENTER_W, CENTER_H, 8);
+	poligono(100.0, 51.1, 0.5, center, 8);
 	
-	al_rest(5);
+	//al_rest(3);
+	//al_clear_to_color(al_color_name("white"));
+	//al_flip_display();
+
+	
+
+	//Mandelbrot(-2, 2, -2, 2);
+
+	//TriangleRecursion(center, 200.0, 15.0, 25, 25, SCREEN_W, SCREEN_H);
+	al_rest(3);
+
+	al_destroy_display(display);
 	al_configuration_end();
 	return 0;
 
 }
+
+int parseCallback(char *key, char *value, void *userData)
+{
+
+
+	return 0;
+}
+
+
+
+
+
 
 
 
