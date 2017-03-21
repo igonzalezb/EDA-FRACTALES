@@ -1,7 +1,7 @@
 //******************************************************************************//
 // Bibliteca para parseo de la linea de comando.                                //
 //permite analizar parametro y opciones. llama a un calback                     //
-//para evaluar la validez de lo enviado, si devuelve 0, hay un herror.          //
+//para evaluar la validez de lo enviado, si devuelve 0, hay un error.          //
 //utiliza el puntero a void para permitirle al callback devolver informacion    //
 //                                                                              //
 //Creadores: Malena Muller(57057), Paulo Navarro(57775) y                       //

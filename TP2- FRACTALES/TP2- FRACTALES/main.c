@@ -34,7 +34,7 @@
 
 void al_configuration_end(void);
 int allegro_setup(void);
-
+int parseCallback(char *key, char *value, void *userData);
 
 typedef struct
 {
@@ -48,7 +48,7 @@ typedef int(*pCallback) (char *, char*, void *);
 
 int main(int argc, char *argv[] )
 {
-	userData_t *userData;
+	userData_t *userData = {NULL};
 	pCallback p = &parseCallback;
 	
 	
@@ -104,9 +104,15 @@ int main(int argc, char *argv[] )
 
 int parseCallback(char *key, char *value, void *userData)
 {
+	if (key == NULL)
+	{
+		printf("Invalid Key\n");
+		return 0;
+	}
 
 
-	return 0;
+
+	return 1;
 }
 
 
