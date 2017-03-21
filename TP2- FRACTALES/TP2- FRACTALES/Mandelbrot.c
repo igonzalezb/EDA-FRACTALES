@@ -121,9 +121,31 @@ UINT sub_mandelbrot (float a0, float af, float b0, float bf)//recibe los límites
 	return 0;
 }
 
-void Mandelbrot(float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
+int Mandelbrot(float a0, float af, float b0, float bf)//recibe los límites del plano complejo, siendo b la parte imaginaria y a la real, 0 los extremos negativos y f los positivos
 /*********** Función principal, permite repetir el gráfico si el usuario lo desea ********/
 {
+
+	if ((a0 > -0.4) || (a0 < -4))
+	{
+		printf("a0 Value Incorrect\n");
+		return -1;
+	}
+	else if ((af < 0.4) || (af > 4))
+	{
+		printf("af Value Incorrect\n");
+		return -1;
+	}
+	else if ((b0 > -0.4) || (b0 < -4))
+	{
+		printf("b0 Value Incorrect\n");
+		return -1;
+	}
+	else if ((bf < 0.4) || (bf > 4))
+	{
+		printf("bf Value Incorrect\n");
+		return -1;
+	}
+	
 	UINT i=1;
 	while (i)
 	{

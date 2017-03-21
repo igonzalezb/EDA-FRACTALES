@@ -19,12 +19,12 @@
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 #include <allegro5\allegro_color.h>
-#include <allegro5\allegro_image.h>
 
 
 #include "poligono.h"
 #include "Mandelbrot.h"
 #include "triangulo.h"
+#include "PARSER.h"
 
 #define ERROR -1
 #define SCREEN_W    800
@@ -36,8 +36,29 @@ void al_configuration_end(void);
 int allegro_setup(void);
 
 
+typedef struct
+{
+	char **keys;
+	char **values;
+	char **fractals;
+}userData_t;
+
+typedef int(*pCallback) (char *, char*, void *);
+
+
 int main(int argc, char *argv[] )
 {
+	userData_t *userData;
+	pCallback p = &parseCallback;
+	
+	
+	if (!parseCmdLine(argc, argv, p, userData))
+	{
+		printf("INPUT ERROR\n");
+	}
+
+
+
 //============================================================================================================
 	ALLEGRO_DISPLAY * display = NULL;
 	
@@ -103,14 +124,14 @@ int allegro_setup (void)
 
 		return ERROR;
 	}
-	if (!al_init_image_addon())
+	/*if (!al_init_image_addon())
 	{
 		fprintf(stderr, "Failed to initialize image addon !\n");
 
 		al_uninstall_system();
 
 		return ERROR;
-	}
+	}*/
 	/*if (!al_install_keyboard())
 	{
 		fprintf(stderr, "Failed to initialize the keyboard!\n");
@@ -137,7 +158,7 @@ int allegro_setup (void)
 	{
 		fprintf(stderr, "Failed to initialize the primitives!\n");
 
-		al_shutdown_image_addon();
+		//al_shutdown_image_addon();
 
 		//al_uninstall_keyboard();
 
@@ -178,7 +199,7 @@ void al_configuration_end(void)
 {
 	al_uninstall_system();
 
-	al_shutdown_image_addon();
+	//al_shutdown_image_addon();
 
 	//al_uninstall_keyboard();
 
