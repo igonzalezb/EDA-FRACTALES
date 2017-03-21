@@ -2,10 +2,10 @@
 // Bibliteca para parseo de la linea de comando.                                //
 //permite analizar parametro y opciones. llama a un calback                     //
 //para evaluar la validez de lo enviado, si devuelve 0, hay un herror.          //
-//utiliza el puntero a void para permitirle al calback deviolver informacion    //
+//utiliza el puntero a void para permitirle al callback devolver informacion    //
 //                                                                              //
 //Creadores: Malena Muller(57057), Paulo Navarro(57775) y                       //
-//Pierdominici Mtias (57498)                                                    //
+//Pierdominici Matias (57498)                                                    //
 //Version: 12/03/2017                                                           //
 //Git: https://github.com/mpierdominici/TP1-EDA.git                             //
 //******************************************************************************//

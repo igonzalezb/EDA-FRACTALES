@@ -180,15 +180,19 @@
   <ItemGroup>
     <ClCompile Include="allegro_setup.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Mandelbrot.c" />
+    <ClCompile Include="PARSER.c" />
     <ClCompile Include="poligono.c" />
     <ClCompile Include="triangulo.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="mandelbrot.h" />
+    <ClInclude Include="PARSER.h" />
+    <ClInclude Include="poligono.h" />
+    <ClInclude Include="triangulo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mandelbrot.h" />
-    <ClInclude Include="poligono.h" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

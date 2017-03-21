@@ -27,9 +27,12 @@
     <ClCompile Include="allegro_setup.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClCompile Include="Mandelbrot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PARSER.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="poligono.h">
@@ -38,5 +41,14 @@
     <ClInclude Include="mandelbrot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PARSER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="triangulo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

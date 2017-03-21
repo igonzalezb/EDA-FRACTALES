@@ -22,17 +22,17 @@ void draw_poligon(float l, float centreX, float centreY, int numPoints);
 
 //===================================================================================================================================
 //		Validacion de Datos
-//	
-//	lStart()
-//	lEnd()
-//	lConstant(0-1)
-//	numPoints (3-50?)
+//	Chequea que los datos ingresados por el usuario sean validos
+//		lStart( 0 - 300)
+//		lEnd( < lStart)
+//		lConstant(0-1)
+//		numPoints (>=3)
 //
 //===================================================================================================================================
 
 int poligono(float lStart, float lEnd, float lConstant, float centreX, float centreY, int numPoints)
 {
-	if (lStart < 0 || lStart > 500)
+	if (lStart < 0 || lStart > 300)
 	{
 		printf("lStart Value Incorrect\n");
 		return -1;
