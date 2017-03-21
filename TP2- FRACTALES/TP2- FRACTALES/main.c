@@ -1,13 +1,15 @@
 //======================================================================================================================
+//			ALGORITMOS Y ESTRUCTURAS DE DATOS
+//				ITBA 2017
+//
+//	TP2 - FRACTALES
+// El programa realiza tres tipos de fractales: fractal triangular, fractal poligonal y fractal de mandelbroot.
 //
 //
-//
-//
-//
-//
-//
-//
-//
+//	Grupo 5:
+//		IÑAKI GONZALEZ BIGLIARDI
+//		IGNACIO MARTIN INHARGUE
+//		MATIAS NICOLÁS PIERDOMINICI
 //
 //
 //
@@ -31,6 +33,7 @@
 #define SCREEN_H    600
 #define CENTER_W	(al_get_display_width(display) / 2)
 #define CENTER_H	(al_get_display_height(display) / 2)
+#define 
 
 void al_configuration_end(void);
 int allegro_setup(void);
@@ -42,6 +45,38 @@ typedef struct
 	char **values;
 	char **fractals;
 }userData_t;
+
+
+typedef struct {
+	int type;
+	float rAngle;
+	float lAngle;
+	float x0;
+	float y0;
+	float xf;
+	float lStart;
+	float lEnd;
+	float lConstant;
+} parametros_t;
+
+enum {UNIFORME, POLIGONO, MANDELBROT};
+
+int validacionUsuario(parametros_t parametro)
+{
+	switch (parametro.type)
+	{
+	case UNIFORME:
+		break;
+	case POLIGONO:
+		break;
+		case 
+
+	default:
+		printf("ERROR de Fractal ingresado\n");
+		break;
+	}
+}
+
 
 typedef int(*pCallback) (char *, char*, void *);
 
@@ -83,7 +118,7 @@ int main(int argc, char *argv[] )
 	center.x = CENTER_W;
 	center.y = CENTER_H;
 	
-	poligono(100.0, 51.1, 0.5, center, 8);
+	poligono(100.0, 50.0, 0.5, center, 8);
 	
 	//al_rest(3);
 	//al_clear_to_color(al_color_name("white"));
@@ -104,12 +139,43 @@ int main(int argc, char *argv[] )
 
 int parseCallback(char *key, char *value, void *userData)
 {
+	int i;
+	bool isEqual;
+	const char *fractalsList[3] = { "UNIFORME","POLIGONO","MANDELBROT" };
+	
 	if (key == NULL)
 	{
-		printf("Invalid Key\n");
-		return 0;
+		for (i = 0; i < 3; i++)
+		{
+			isEqual=strcmp(value, fractalsList[i]);
+			if (isEqual == true)
+			{
+				switch (i)
+				{
+				case 0:	//UNIFORME
+
+					break;
+				case 1:	//POLIGONO
+
+					break;
+
+				case 2:	//MANDELBROT
+
+					break;
+				
+				}
+			}
+
+		}
+		
+		
+	}
+	else
+	{
+
 	}
 
+	
 
 
 	return 1;
@@ -130,93 +196,24 @@ int allegro_setup (void)
 
 		return ERROR;
 	}
-	/*if (!al_init_image_addon())
-	{
-		fprintf(stderr, "Failed to initialize image addon !\n");
 
-		al_uninstall_system();
-
-		return ERROR;
-	}*/
-	/*if (!al_install_keyboard())
-	{
-		fprintf(stderr, "Failed to initialize the keyboard!\n");
-
-		al_uninstall_system();
-
-		al_shutdown_image_addon();
-
-		return ERROR;
-	}
-	if (!al_install_mouse())
-	{
-		fprintf(stderr, "Failed to initialize mouse!\n");
-
-		al_shutdown_image_addon();
-
-		al_uninstall_system();
-
-		al_uninstall_keyboard();
-
-		return ERROR;
-	}*/
 	if (!al_init_primitives_addon())
 	{
 		fprintf(stderr, "Failed to initialize the primitives!\n");
 
-		//al_shutdown_image_addon();
-
-		//al_uninstall_keyboard();
-
 		al_uninstall_system();
 
-		//al_uninstall_mouse();
-
 		return ERROR;
 	}
-	/*if (!al_install_audio())
-	{
-		fprintf(stderr, "failed to initialize audio!\n");
-
-		return ERROR;
-	}
-	if (!al_init_acodec_addon())
-	{
-		fprintf(stderr, "failed to initialize audio codecs!\n");
-
-		return ERROR;
-	}
-	if (!al_reserve_samples(RESERVED_SAMPLES))
-	{
-		fprintf(stderr, "failed to reserve samples!\n");
-
-		return ERROR;
-	}
-	al_init_font_addon();
-
-	al_init_ttf_addon();*/
 
 	return 0;
 }
-//
-//
-//
+
 void al_configuration_end(void)
 {
 	al_uninstall_system();
 
-	//al_shutdown_image_addon();
-
-	//al_uninstall_keyboard();
-
-	//al_uninstall_mouse();
-
 	al_shutdown_primitives_addon();
 
-	//al_uninstall_audio();
-
-	//al_shutdown_font_addon();
-
-	//al_shutdown_ttf_addon();
-
+	
 }
